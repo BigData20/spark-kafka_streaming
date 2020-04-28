@@ -3,7 +3,7 @@ import logging
 import signal
 import time
 
-from kafka_streams import KafkaStreams
+from kafka_producer import KafkaProducer
 
 loop = asyncio.get_event_loop()
 
@@ -13,7 +13,7 @@ class Main(object):
     # client = aiohttp.ClientSession(loop=loop)
 
     def __init__(self):
-        self.kafkastreams_1 = KafkaStreams(["localhost:9092"])
+        self.kafkastreams_1 = KafkaProducer(["localhost:9092"], None)
         signal.signal(signal.SIGINT, self.signal_handler)
 
     def run(self, producer_id):
