@@ -5,10 +5,9 @@ import json
 class Kafka_Consumer(object):
 
     def __init__(self, kafka_brokers, zookeeper_connect, topic, group_id):
-        self.consumer = Kafka_Consumer(
+        self.consumer = KafkaConsumer(
             topic,
             bootstrap_servers=kafka_brokers,
-            zookeeper_connect=zookeeper_connect,
             auto_offset_reset='earliest',
             enable_auto_commit=True,
             group_id=group_id,

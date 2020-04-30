@@ -5,7 +5,7 @@ import json
 class Kafka_Producer(object):
 
     def __init__(self, kafka_brokers):
-        self.producer = Kafka_Producer(
+        self.producer = KafkaProducer(
             value_serializer=lambda v: json.dumps(v).encode('utf-8'),
             bootstrap_servers=kafka_brokers
         )
